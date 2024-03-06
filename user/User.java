@@ -4,8 +4,7 @@ import lombok.*;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@ToString
-
+@ToString(exclude = {"id"})
 public class User {
     private Long id;
     private String username;

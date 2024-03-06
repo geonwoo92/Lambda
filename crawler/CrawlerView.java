@@ -1,19 +1,24 @@
 package crawler;
 
-import user.UserController;
+import org.jsoup.nodes.Element;
 
+import java.io.IOException;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
 
 public class CrawlerView {
-    public static void main(Scanner sc) {
-        ClrawlerController controller = new ClrawlerController();
-
+    public static void main(Scanner sc) throws IOException {
+        CrawlerController controller = new CrawlerController();
+        Map<String, ?> map;
+        Iterator<Element> title;
+        Iterator<Element> artist;
+        Iterator<Element> rank;
         System.out.println(" addUsers 결과 : ");
         while (true) {
             System.out.println("[사용자메뉴] 0-종료\n " +
                     "1-벅스뮤직\n " +
-                    "2-로그인\n " +
+                    "2-멜론뮤직\n " +
                     "3-ID검색\n " +
                     "4-비번변경\n" +
                     "5-탈퇴\n " +
@@ -27,12 +32,26 @@ public class CrawlerView {
                     return;
                 case "1":
                     System.out.println("1-벅스뮤직");
-                    Map<String, ?> map = controller.findBugsMusic(sc);
-
+                    map  = controller.findBugsMusic(sc);
+                    title = (Iterator<Element>) map.get("title");
+                    artist = (Iterator<Element>) map.get("artist");
+                    rank = (Iterator<Element>) map.get("rank");
+                    System.out.println("벅스뮤직 결과: ");
+                    while (rank.hasNext()) {
+                        System.out.println(rank.next().text() + "위 " + artist.next().text() + " - " + title.next().text());
+                    }
                     break;
                 case "2":
-                    System.out.println("2-로그인");
+                    System.out.println("2-멜론 뮤직");
+                    map = controller.findMellonMusic(sc);
+                    title = (Iterator<Element>) map.get("title2");
+                    artist = (Iterator<Element>) map.get("artist2");
+                    rank = (Iterator<Element>) map.get("rank2");
 
+                    System.out.println("멜론뮤직 결과: ");
+                    while (rank.hasNext()) {
+                        System.out.println(rank.next().text() + "위 " + artist.next().text() + " - " + title.next().text());
+                    }
                     break;
                 case "3":
                     System.out.println("3-ID 검색");

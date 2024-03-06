@@ -2,10 +2,12 @@ import account.AccountView;
 import board.BoardView;
 import user.UserView;
 import crawler.CrawlerView;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
 
         while (true){
