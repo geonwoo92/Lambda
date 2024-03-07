@@ -3,6 +3,7 @@ package user;
 import common.Member;
 import enums.Messenger;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -91,5 +92,14 @@ public class UserController {
 
     public String addUser() {
         return userService.addUsers();
+    }
+
+
+    public String test() {
+        return userService.test();
+    }
+
+    public List<?> findUsers() throws SQLException {
+        return userService.findUsers();
     }
 }

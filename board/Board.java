@@ -8,16 +8,14 @@ import lombok.*;
 
 public class Board {
     private int id;
-    private String title;
-    private String content;
-    private String writer;
+    private String boardName;
+    private String boardType;
 
     @Builder(builderMethodName = "builder")
 
-    public Board(int id, String title, String content, String writer) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.writer = writer;
+    public Board(String titboardNamele, String boardType) {
+        this.boardName = boardName;
+        this.boardType = boardType;
+
     }
 }
