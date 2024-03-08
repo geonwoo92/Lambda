@@ -18,10 +18,10 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 
     UserServiceImpl() {
         this.users = new HashMap<>();
-        this.reop = UserRepository.getInstance();
+        this.repo = UserRepository.getInstance();
     }
 
-    UserRepository reop;
+    UserRepository repo;
 
 
     public static UserServiceImpl getInstance() {
@@ -163,7 +163,7 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 
     @Override
     public List<?> findUsers() throws SQLException {
-        return reop.findUsers();
+        return repo.findUsers();
     }
 
 
@@ -182,6 +182,15 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
     }
 
 
+    public String createTable() throws SQLException {return
+            repo.createTable();
+
+
+    }
+
+    public String deleteTable() throws SQLException {
+        return repo.deleteTable();
+    }
 }
 
 

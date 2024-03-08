@@ -1,12 +1,14 @@
 package article;
 
+import java.sql.SQLException;
+import java.util.List;
 import java.util.Scanner;
 
 public class ArticleView {
-    private static ArticleController articleController = ArticleController.getInstance();
 
-    public static void main(Scanner sc) {
 
+    public static void main(Scanner sc) throws SQLException {
+        ArticleController articleController = new ArticleController();
 
         while (true){
             System.out.println("=== 0-종료 " +
@@ -17,8 +19,7 @@ public class ArticleView {
                     return;
                 case"1":
                     System.out.println("글 목록");
-                    articleController.getArticleList().forEach(System.out::println);
-
+                    articleController.findAll().forEach(i-> System.out.println(i));
 
                     break;
 

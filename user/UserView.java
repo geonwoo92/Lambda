@@ -24,7 +24,9 @@ public class UserView {
                     "6-회원목록\n " +
                     "7-이름검색\n" +
                     "8-직업검색\n" +
-                    "9-회원수");
+                    "9-회원수\n" +
+                    "touch-테이블생성\n" +
+                    "rm-테이블삭제");
             switch (scanner.next()) {
                 case "0":
                     System.out.println("종료");
@@ -32,7 +34,7 @@ public class UserView {
                 case "1":
                     System.out.println("1-회원가입");
                     System.out.println("회원가입 결과 : " + controller.save(scanner));
-                    System.out.println(""+controller.test());
+                    System.out.println("" + controller.test());
                     break;
                 case "2":
                     System.out.println("2-로그인");
@@ -70,14 +72,22 @@ public class UserView {
                         System.out.println(i);
                     });
                     break;
-                case "9":
-                    System.out.println("9-회원수");
-                    String numberOfUsers = controller.count();
-                    System.out.println("회원수 " + numberOfUsers);
+                case "touch":
+                    System.out.println("테이블생성");
+
+                    System.out.println("회원테이블 생성 성공"+ controller.createTable());
+
                     break;
+
+                case "rm":
+                    System.out.println("테이블삭제");
+                    System.out.println("회원테이블 삭제 성공 "+controller.deleteTable());
+                    break;
+
 
             }
         }
     }
-
 }
+
+

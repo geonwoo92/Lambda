@@ -1,8 +1,10 @@
 package user;
 
+import com.mysql.cj.jdbc.DatabaseMetaData;
 import crawler.CrawlerRepository;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -57,7 +59,7 @@ public class UserRepository {
                 System.out.println();
             } while (rs.next());
 
-        }else {
+        } else {
             System.out.println("데이터가 없습니다.");
         }
 
@@ -67,4 +69,53 @@ public class UserRepository {
 
         return null;
     }
+
+    public String createTable() throws SQLException {
+
+        String sql = "CREATE TABLE Users (id INT AUTO_INCREMENT PRIMARY KEY,\n" +
+                "                    username VARCHAR(20) NOT NULL,\n" +
+                "                    password VARCHAR(20) NOT NULL,\n" +
+                "                    name VARCHAR(20),\n" +
+                "                    phone VARCHAR(20),\n" +
+                "                    addressID VARCHAR(20),\n" +
+                "                    job VARCHAR(20),\n" +
+                "                    height VARCHAR(20),\n" +
+                "                    weight VARCHAR(20))";
+
+        String msg = "";
+
+        PreparedStatement pstmt = connection.prepareStatement(sql);
+        int ac = pstmt.executeUpdate();
+        System.out.println("쿼리의 반환값은 :" + ac);
+
+        if (ac == 0) {
+            msg = "성공";
+        } else {
+            msg = "실패";
+        }
+
+        return msg;
+    }
+
+    public String deleteTable() throws SQLException {
+
+        String sql = "DROP TABLE Users";
+
+        String msg = "";
+
+        PreparedStatement pstmt = connection.prepareStatement(sql);
+        int ac = pstmt.executeUpdate();
+        System.out.println("쿼리의 반환값은 :" + ac);
+
+        if (ac == 0) {
+            msg = "성공";
+        } else {
+            msg = "실패";
+        }
+
+        return msg;
+    }
+
+
 }
+

@@ -13,26 +13,27 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         while (true) {
-            System.out.println("=== 0-Exit " +
-                    "1-User " +
-                    "2-Board " +
-                    "3-Account " +
-                    "4-Crawler " +
+            System.out.println("=== x-Exit " +
+                    "u-User " +
+                    "b-Board " +
+                    "m-Account " +
+                    "c-Crawler " +
+                    "a-Article"+
                     "===");
             switch (sc.next()) {
-                case "0":
+                case "x":
                     return;
-                case "1":
+                case "u":
                     UserView.main(sc);
                     break;
 //                case "2": BoardView.main(); break;
-                case "3":
+                case "m":
                     AccountView.main(sc);
                     break;
-                case "4":
+                case "c":
                     CrawlerView.main(sc);
                     break;
-                case "5":
+                case "a":
                     ArticleView.main(sc);
                     break;
             }

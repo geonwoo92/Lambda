@@ -1,19 +1,16 @@
 package article;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class ArticleController {
-    private static ArticleController instance = new ArticleController();
-    private ArticleService aricleService;
+    private ArticleServiceImpl articleService;
 
-    private ArticleController() {
-        this.aricleService = ArticleServiceImpl.getInstance();
-    }
-    public static ArticleController getInstance() {
-        return instance;
+    public ArticleController() {
+        this.articleService = ArticleServiceImpl.getInstance();
     }
 
-    public List<?> getArticleList() {
-        return aricleService.getArticleList();
+    public List<?> findAll() throws SQLException {
+        return articleService.findAll();
     }
 }
