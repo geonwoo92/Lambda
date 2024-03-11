@@ -103,11 +103,13 @@ public class UserController {
         return userService.findUsers();
     }
 
-    public String createTable() throws SQLException {
+    public Messenger createTable() throws SQLException {
         return userService.createTable();
     }
 
     public String deleteTable() throws SQLException {
         return userService.deleteTable();
     }
+
+
 }

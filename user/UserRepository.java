@@ -87,14 +87,16 @@ public class UserRepository {
         PreparedStatement pstmt = connection.prepareStatement(sql);
         int ac = pstmt.executeUpdate();
         System.out.println("쿼리의 반환값은 :" + ac);
-
         if (ac == 0) {
             msg = "성공";
         } else {
             msg = "실패";
         }
 
-        return msg;
+        pstmt.close();
+        connection.close();
+
+        return (ac == 0) ? "성공" : "실패" ;
     }
 
     public String deleteTable() throws SQLException {
@@ -113,8 +115,13 @@ public class UserRepository {
             msg = "실패";
         }
 
-        return msg;
+        return (ac == 0) ? "성공" : "실패";
     }
+
+
+
+
+
 
 
 }

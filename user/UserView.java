@@ -76,7 +76,6 @@ public class UserView {
                     System.out.println("테이블생성");
 
                     System.out.println("회원테이블 생성 성공"+ controller.createTable());
-
                     break;
 
                 case "rm":
