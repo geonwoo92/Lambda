@@ -1,6 +1,6 @@
-package crawler;
+package com.erich.api.crawler;
 
-import common.AbstractRepository;
+import com.erich.api.common.AbstractRepository;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

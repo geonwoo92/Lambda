@@ -1,4 +1,4 @@
-package account;
+package com.erich.api.account;
 
 import java.util.List;
 

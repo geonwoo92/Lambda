@@ -1,4 +1,4 @@
-package common;
+package com.erich.api.common;
 
 import java.util.ArrayList;
 

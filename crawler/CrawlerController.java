@@ -1,4 +1,4 @@
-package crawler;
+package com.erich.api.crawler;
 
 import java.io.IOException;
 import java.util.HashMap;

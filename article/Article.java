@@ -1,4 +1,4 @@
-package article;
+package com.erich.api.article;
 
 import lombok.Builder;
 import lombok.Getter;

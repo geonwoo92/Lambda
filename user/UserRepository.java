@@ -1,7 +1,7 @@
-package user;
+package com.erich.api.user;
 
 import com.mysql.cj.jdbc.DatabaseMetaData;
-import crawler.CrawlerRepository;
+import com.erich.api.crawler.CrawlerRepository;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,7 +11,12 @@ import java.util.Map;
 
 public class UserRepository {
 
+
+
     private static UserRepository instance;
+
+    private PreparedStatement pstmt;
+    private ResultSet rs;
 
     static {
         try {
@@ -30,6 +35,9 @@ public class UserRepository {
                 "erichgamma",
                 "erichgammadb");
 
+        pstmt=null;
+        rs = null;
+
 
     }
 
@@ -45,8 +53,8 @@ public class UserRepository {
 
 
         String sql = "select * from articles";
-        PreparedStatement pstmt = connection.prepareStatement(sql);
-        ResultSet rs = pstmt.executeQuery();
+        pstmt = connection.prepareStatement(sql);
+        rs = pstmt.executeQuery();
         System.out.println("ResultSet Size");
 
         if (rs.next()) {
@@ -62,10 +70,6 @@ public class UserRepository {
         } else {
             System.out.println("데이터가 없습니다.");
         }
-
-        rs.close();
-        pstmt.close();
-        connection.close();
 
         return null;
     }
@@ -93,7 +97,6 @@ public class UserRepository {
             msg = "실패";
         }
 
-        pstmt.close();
         connection.close();
 
         return (ac == 0) ? "성공" : "실패" ;
@@ -117,8 +120,6 @@ public class UserRepository {
 
         return (ac == 0) ? "성공" : "실패";
     }
-
-
 
 
 

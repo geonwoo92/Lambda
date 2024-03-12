@@ -1,6 +1,7 @@
-package article;
+package com.erich.api.article;
 
-import user.UserRepository;
+import com.erich.api.article.Article;
+import com.erich.api.user.UserRepository;
 
 import java.sql.*;
 import java.util.ArrayList;

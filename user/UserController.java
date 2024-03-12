@@ -1,7 +1,7 @@
-package user;
+package com.erich.api.user;
 
-import common.Member;
-import enums.Messenger;
+import com.erich.api.common.Member;
+import com.erich.api.enums.Messenger;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -103,7 +103,7 @@ public class UserController {
         return userService.findUsers();
     }
 
-    public Messenger createTable() throws SQLException {
+    public String createTable() throws SQLException {
         return userService.createTable();
     }
 

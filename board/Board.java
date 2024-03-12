@@ -1,4 +1,4 @@
-package board;
+package com.erich.api.board;
 
 import lombok.*;
 

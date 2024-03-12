@@ -1,4 +1,4 @@
-package crawler;
+package com.erich.api.crawler;
 
 import org.jsoup.nodes.Element;
 

@@ -1,4 +1,4 @@
-package user;
+package com.erich.api.user;
 
 import lombok.*;
 

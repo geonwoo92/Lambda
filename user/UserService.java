@@ -1,4 +1,4 @@
-package user;
+package com.erich.api.user;
 
 import java.sql.SQLException;
 import java.util.List;

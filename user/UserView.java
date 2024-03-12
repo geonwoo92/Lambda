@@ -1,6 +1,6 @@
-package user;
+package com.erich.api.user;
 
-import enums.Messenger;
+import com.erich.api.enums.Messenger;
 
 import java.sql.SQLException;
 import java.util.List;

@@ -1,4 +1,4 @@
-package proxy;
+package com.erich.api.proxy;
 
 public class DateProxy {
 }

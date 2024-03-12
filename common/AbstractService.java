@@ -1,7 +1,7 @@
-package common;
+package com.erich.api.common;
 
-import enums.Messenger;
-import user.User;
+import com.erich.api.enums.Messenger;
+import com.erich.api.user.User;
 
 import java.sql.SQLException;
 import java.util.List;
