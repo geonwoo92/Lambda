@@ -1,16 +1,11 @@
+
 package com.erich.api.user;
 
-import com.mysql.cj.jdbc.DatabaseMetaData;
-import com.erich.api.crawler.CrawlerRepository;
-
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 public class UserRepository {
-
 
 
     private static UserRepository instance;
@@ -35,7 +30,7 @@ public class UserRepository {
                 "erichgamma",
                 "erichgammadb");
 
-        pstmt=null;
+        pstmt = null;
         rs = null;
 
 
@@ -99,7 +94,7 @@ public class UserRepository {
 
         connection.close();
 
-        return (ac == 0) ? "성공" : "실패" ;
+        return (ac == 0) ? "성공" : "실패";
     }
 
     public String deleteTable() throws SQLException {
@@ -120,9 +115,6 @@ public class UserRepository {
 
         return (ac == 0) ? "성공" : "실패";
     }
-
-
-
 
 
 }
