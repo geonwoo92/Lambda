@@ -1,8 +1,9 @@
-package user;
+package com.erich.api.user;
 
-import common.Member;
-import enums.Messenger;
+import com.erich.api.common.Member;
+import com.erich.api.enums.Messenger;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -26,7 +27,7 @@ public class UserController {
 
     public Messenger save(Scanner scanner) {
         System.out.println("ID, " + "비밀번호, " + "비밀번호 확인, " + "이름, " + "주민번호 " + "전화번호, " + "주소, " + "직업을 입력해주세요");
-        return userService.save(User.builder().username(scanner.next()).password(scanner.next()).verify_password(scanner.next()).name(scanner.next()).address(scanner.next()).build());
+        return userService.save(User.builder().username(scanner.next()).password(scanner.next()).verify_password(scanner.next()).name(scanner.next()).build());
     }
 
     public String login(Scanner scanner) {
@@ -43,7 +44,7 @@ public class UserController {
     public String updatePassword(Scanner scanner) {
         System.out.println("수정할 ID 입력 : ");
         System.out.println("수정할 비번 입력 : ");
-        return userService.updatePassword(User.builder().social_Security_Number(scanner.next()).address(scanner.next()).phone_number(scanner.next()).username(scanner.next()).password(scanner.next()).build());
+        return userService.updatePassword(User.builder().phone(scanner.next()).username(scanner.next()).password(scanner.next()).build());
     }
 
 
@@ -92,4 +93,23 @@ public class UserController {
     public String addUser() {
         return userService.addUsers();
     }
+
+
+    public String test() {
+        return userService.test();
+    }
+
+    public List<?> findUsers() throws SQLException {
+        return userService.findUsers();
+    }
+
+    public String createTable() throws SQLException {
+        return userService.createTable();
+    }
+
+    public String deleteTable() throws SQLException {
+        return userService.deleteTable();
+    }
+
+
 }

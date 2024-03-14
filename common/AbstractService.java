@@ -1,14 +1,15 @@
-package common;
+package com.erich.api.common;
 
-import enums.Messenger;
-import user.User;
+import com.erich.api.enums.Messenger;
+import com.erich.api.user.User;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
 public abstract class AbstractService<T> {
     public abstract Messenger save (T t);
-    public abstract List<T> findAll();
+    public abstract List<T> findAll() throws SQLException;
     public abstract Optional<T> findById(long id); // system id
     public abstract String count();
     public abstract Optional<T> getOne(String id); // 외부에서 우리가 쓰는 id

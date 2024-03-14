@@ -1,6 +1,6 @@
-package account;
+package com.erich.api.account;
 
-import enums.Messenger;
+import com.erich.api.enums.Messenger;
 
 import java.util.List;
 import java.util.Scanner;

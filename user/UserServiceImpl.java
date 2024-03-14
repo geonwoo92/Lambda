@@ -1,10 +1,11 @@
-package user;
+package com.erich.api.user;
 
-import common.AbstractService;
-import common.UtilServiceImpl;
-import enums.Messenger;
+import com.erich.api.common.AbstractService;
+import com.erich.api.common.UtilServiceImpl;
+import com.erich.api.enums.Messenger;
 
 
+import java.sql.SQLException;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -15,9 +16,13 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
     private static UserServiceImpl instance = new UserServiceImpl();
     Map<String, User> users;
 
-    private UserServiceImpl() {
+    UserServiceImpl() {
         this.users = new HashMap<>();
+        this.repo = UserRepository.getInstance();
     }
+
+    UserRepository repo;
+
 
     public static UserServiceImpl getInstance() {
         return instance;
@@ -152,6 +157,17 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
     }
 
     @Override
+    public String test() {
+        return null;
+    }
+
+    @Override
+    public List<?> findUsers() throws SQLException {
+        return repo.findUsers();
+    }
+
+
+    @Override
     public String addUsers() {
         IntStream.range(0, 5)
                 .mapToObj(i -> UtilServiceImpl.getInstance().createRandomUsername())
@@ -163,6 +179,17 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
                         .build()));
         return users.size() + "개 더미값 추가";
 
+    }
+
+
+    public String createTable() throws SQLException {return
+            repo.createTable();
+
+
+    }
+
+    public String deleteTable() throws SQLException {
+        return repo.deleteTable();
     }
 
 
