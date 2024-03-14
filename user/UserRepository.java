@@ -1,41 +1,11 @@
-<<<<<<< HEAD
-package user;
 
-import java.sql.*;
-
-public class UserRepository {
-    public void findusers() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/erichgammadb";
-        String userName = "erichgamma";
-        String password = "erichgammadb";
-
-        Connection connection = DriverManager.getConnection(url, userName, password);
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("select * from board");
-
-        resultSet.next();
-        String name = resultSet.getString("name");
-        System.out.println(name);
-
-        resultSet.close();
-        statement.close();
-        connection.close();
-    }
-}
-=======
 package com.erich.api.user;
 
-import com.mysql.cj.jdbc.DatabaseMetaData;
-import com.erich.api.crawler.CrawlerRepository;
-
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 public class UserRepository {
-
 
 
     private static UserRepository instance;
@@ -60,7 +30,7 @@ public class UserRepository {
                 "erichgamma",
                 "erichgammadb");
 
-        pstmt=null;
+        pstmt = null;
         rs = null;
 
 
@@ -124,7 +94,7 @@ public class UserRepository {
 
         connection.close();
 
-        return (ac == 0) ? "성공" : "실패" ;
+        return (ac == 0) ? "성공" : "실패";
     }
 
     public String deleteTable() throws SQLException {
@@ -147,9 +117,5 @@ public class UserRepository {
     }
 
 
-
-
-
 }
 
->>>>>>> develop-1.1
