@@ -10,10 +10,11 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Scanner;
 import java.util.function.Function;
+import java.util.stream.Stream;
 
 public enum NavigationOfFunction {
-    EXIT("exit",i->"x"),
-    USER("user", i-> {
+    EXIT("x",i->"x"),
+    USER("u", i-> {
         try {
             UserView.main(i);
         } catch (SQLException e) {
@@ -21,7 +22,7 @@ public enum NavigationOfFunction {
         }
         return "";
     }),
-    ARTICLE("ariticle", i-> {
+    ARTICLE("ar", i-> {
         try {
             ArticleView.main(i);
         } catch (SQLException e) {
@@ -29,10 +30,10 @@ public enum NavigationOfFunction {
         }
         return "";
     }),
-    ACCOUNT("account", i-> {AccountView.main(i);
+    ACCOUNT("ac", i-> {AccountView.main(i);
         return "";
     }),
-    CRAWLER("crawler", i-> {
+    CRAWLER("c", i-> {
         try {
             CrawlerView.main(i);
         } catch (IOException e) {
@@ -59,7 +60,12 @@ public enum NavigationOfFunction {
         String msg = sc.next();
         System.out.println("선택한 메뉴 : "+ msg);
 
-        return msg;
+        return Stream.of(values())
+                .filter(i->i.name.equals(msg))
+                .findAny()
+                .orElseGet(()->EXIT)
+                .function
+                .apply(sc);
 
     }
 }

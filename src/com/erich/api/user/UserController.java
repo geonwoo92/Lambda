@@ -2,6 +2,7 @@ package com.erich.api.user;
 
 import com.erich.api.common.Member;
 import com.erich.api.enums.Messenger;
+import com.erich.api.enums.UserRouter;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -10,19 +11,28 @@ import java.util.Optional;
 import java.util.Scanner;
 
 public class UserController {
-    UserServiceImpl userService;
+
+
+    private static UserController instance = new UserController();
+
+    public static UserController getInstance(){
+        return instance;
+    }
+
+    private UserServiceImpl userService;
 
     public UserController() {
         this.userService = UserServiceImpl.getInstance();
     }
 
-    public Map<String, ?> getUserMap() {
-        System.out.println("전체 목록 출력");
-        return userService.getUserMap();
-    }
 
     public String addUsers() {
         return userService.addUsers();
+    }
+
+    public Map<String, ?> getUserMap() {
+        System.out.println("전체 목록 출력");
+        return userService.getUserMap();
     }
 
     public Messenger save(Scanner scanner) {

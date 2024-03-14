@@ -16,8 +16,8 @@ public class Main {
 //        NavigationOfFunction.navimain(sc);
 //        NavigationOfSupply.navimain(sc);
         String stringFlag2= NavigationOfFunction.navimain(sc);
-        while (stringFlag2.equals("x")) {
-        }
+        while (!stringFlag2.equals("x")) ;
+
 //        while (NavigationOfPredicate.navimain(sc)) {
 //        }
 //        while (NavigationOfConsumer.navimain(sc)) {
