@@ -1,16 +1,30 @@
 package com.erich.api;
 
-import com.erich.api.enums.NavigationOfConsumer;
-import com.erich.api.enums.NavigationOfFunction;
-import com.erich.api.enums.NavigationOfPredicate;
-import com.erich.api.enums.NavigationOfSupply;
+import com.erich.api.enums.*;
+import com.erich.api.menu.Menu;
+import com.erich.api.menu.MenuController;
 
 
+import java.sql.SQLException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws SQLException {
+
+//        Messenger msg = MenuController.getInstance().returnMessenger();
+//        Menu oneMenu = MenuController.getInstance().returnOneMenu();
+//        List<?> allMenu = MenuController.getInstance().returnAllMenus();
+
+
+
+
+
+
+//        MenuController.getInstance().makeMenuTable();
+
+
+       Scanner sc = new Scanner(System.in);
 //        NavigationOfConsumer.navimain(sc);
 //        NavigationOfPredicate.navimain(sc);
 //        NavigationOfFunction.navimain(sc);

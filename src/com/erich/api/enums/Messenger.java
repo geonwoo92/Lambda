@@ -1,5 +1,5 @@
 package com.erich.api.enums;
 
 public enum Messenger {
-    SUCCES, FAIL
+    SUCCESS, SQL_ERROR, FAIL
 }

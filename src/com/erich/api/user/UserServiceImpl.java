@@ -31,7 +31,7 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
     @Override
     public Messenger save(User user) {
         users.put(user.getUsername(), user);
-        return Messenger.SUCCES;
+        return Messenger.SUCCESS;
     }
 
     @Override

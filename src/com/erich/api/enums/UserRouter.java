@@ -1,5 +1,6 @@
 package com.erich.api.enums;
 
+import com.erich.api.menu.MenuController;
 import com.erich.api.user.UserController;
 
 import java.sql.SQLException;
@@ -92,19 +93,20 @@ public enum UserRouter {
     }
 
 
-    public static boolean execute(Scanner scanner) {
+    public static boolean execute(Scanner scanner) throws SQLException {
 
-        System.out.println("1-회원가입\n" +
-                "2-로그인\n" +
-                "3-ID 검색\n" +
-                "4-비번 번경\n" +
-                "5-회원탈퇴\n" +
-                "6-이름검색\n" +
-                "7-회원목록\n" +
-                "8-직업검색\n" +
-                "9-회원수\n" +
-                "touch-테이블생성\n" +
-                "rm-테이블제거\n");
+//        System.out.println(MenuController.getInstance().returnAllMenus("usr"));
+//        System.out.println("1-회원가입\n" +
+//                "2-로그인\n" +
+//                "3-ID 검색\n" +
+//                "4-비번 번경\n" +
+//                "5-회원탈퇴\n" +
+//                "6-이름검색\n" +
+//                "7-회원목록\n" +
+//                "8-직업검색\n" +
+//                "9-회원수\n" +
+//                "touch-테이블생성\n" +
+//                "rm-테이블제거\n");
         String msg = scanner.next();
         return Stream.of(values())
                 .filter(i->i.name.equals(msg))
